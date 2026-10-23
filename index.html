@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0f1a" />
+    <title>BIY TECH</title>
+    <link rel="icon" type="image/svg+xml" href="/biy-tech-logo.svg" />
+    <script>
+      try { var s = JSON.parse(localStorage.getItem('u1.settings') || '{}'); var d = document.documentElement;
+        d.dataset.theme = s.theme || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        d.lang = s.lang || 'en'; d.dir = (s.lang === 'ar') ? 'rtl' : 'ltr'; } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
