@@ -34,7 +34,7 @@ export default function Home() {
   const features = [
     { to: '/story', icon: 'play', k: 'story' },
     { to: '/infrastructure', icon: 'layers', k: 'infrastructure' },
-    { to: '/learn?tab=software', icon: 'doc', k: 'software' },
+    { to: '/ar', icon: 'camera', k: 'ar' },
     { to: '/models', icon: 'cube', k: 'models' },
     { to: '/assembly', icon: 'chip', k: 'assembly' },
     { to: '/lab', icon: 'network', k: 'lab' },
@@ -51,8 +51,8 @@ export default function Home() {
           <p className="lead">{t('home.lead')}</p>
           <div className="row wrap" style={{ gap: 12 }}>
             <Link className="btn primary lg" to="/story"><Icon name="play" size={18} />{t('nav.story')}</Link>
+            <Link className="btn lg" to="/ar"><Icon name="camera" size={18} />{t('nav.ar')}</Link>
             <Link className="btn lg" to="/infrastructure"><Icon name="layers" size={18} />{t('nav.infrastructure')}</Link>
-            <Link className="btn lg" to="/learn?tab=software"><Icon name="doc" size={18} />{t('nav.software')}</Link>
             <Link className="btn lg" to={`/learn/${next.id}`}><Icon name="book" size={18} />{p.xp ? t('home.continue') : t('home.start')}</Link>
           </div>
           <div className="row wrap hero-stats" style={{ gap: 28 }}>

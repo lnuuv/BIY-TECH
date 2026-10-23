@@ -24,7 +24,10 @@ const ICONS = {
   download: 'M12 4v11M7 11l5 5 5-5M5 20h14', server: 'M4 4h16v6H4zM4 14h16v6H4zM8 7h.01M8 17h.01', pc: 'M3 4h18v12H3zM8 20h8M12 16v4', laptop: 'M5 5h14v10H5zM2 19h20', phone: 'M8 3h8a1 1 0 011 1v16a1 1 0 01-1 1H8a1 1 0 01-1-1V4a1 1 0 011-1zM11 18h2', printer: 'M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z', router: 'M4 14h16v6H4zM8 17h.01M12 17h.01M7 14l-2-6M17 14l2-6', switch: 'M3 9h18v6H3zM6 12h.01M9 12h.01M12 12h.01M15 12h.01M18 12h.01', ap: 'M12 14a2 2 0 100-4 2 2 0 000 4zM7 8a7 7 0 000 8M17 8a7 7 0 010 8M4 5a11 11 0 000 14M20 5a11 11 0 010 14', cloud: 'M7 18a4 4 0 01-.5-8 6 6 0 0111.5 1.5A3.5 3.5 0 0117.5 18H7z',
   volume: 'M11 5L6 9H2v6h4l5 4V5zM15.5 8.5a5 5 0 010 7M19 5a10 10 0 010 14',
   mute: 'M11 5L6 9H2v6h4l5 4V5zM22 9l-6 6M16 9l6 6',
+  volumeOff: 'M11 5L6 9H2v6h4l5 4V5zM22 9l-6 6M16 9l6 6',
   list: 'M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01',
+  camera: 'M4 8h3l2-3h6l2 3h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1zM12 10a3.5 3.5 0 100 7 3.5 3.5 0 000-7z',
+  target: 'M12 3v3M12 18v3M3 12h3M18 12h3M12 7a5 5 0 100 10 5 5 0 000-10zM12 11a1 1 0 100 2 1 1 0 000-2z',
 };
 export const iconPath = (name) => ICONS[name] || ICONS.info;
 export function Icon({ name, size = 20, stroke = 1.8, className, style }) {

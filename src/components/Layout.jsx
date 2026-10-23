@@ -11,7 +11,7 @@ const NAV = [
   { to: '/story', icon: 'play', k: 'nav.story', group: 'build' },
   { to: '/infrastructure', icon: 'layers', k: 'nav.infrastructure', group: 'build' },
   { to: '/models', icon: 'cube', k: 'nav.models', group: 'build' },
-  { to: '/ar', icon: 'eye', k: 'nav.ar', group: 'build' },
+  { to: '/ar', icon: 'camera', k: 'nav.ar', group: 'build' },
   { to: '/assembly', icon: 'chip', k: 'nav.assembly', group: 'build' },
   { to: '/lab', icon: 'network', k: 'nav.lab', group: 'build' },
   { to: '/practice', icon: 'trophy', k: 'nav.practice', group: 'test' },
@@ -20,7 +20,7 @@ const NAV = [
   { to: '/assistant', icon: 'bot', k: 'nav.assistant', group: 'help' },
   { to: '/progress', icon: 'star', k: 'nav.progress', group: 'help' },
 ];
-const MOBILE = ['/', '/learn', '/story', '/infrastructure', '/lab'];
+const MOBILE = ['/', '/learn', '/story', '/ar', '/lab'];
 const GROUPS = { build: 'nav.g.build', test: 'nav.g.test', help: 'nav.g.help' };
 const SIDEBAR_KEY = 'u1.sidebar.collapsed';
 

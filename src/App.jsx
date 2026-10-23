@@ -17,16 +17,16 @@ const Assignment = lazy(() => import('./pages/Assignment.jsx'));
 const Assistant = lazy(() => import('./pages/Assistant.jsx'));
 const Progress = lazy(() => import('./pages/Progress.jsx'));
 const Story = lazy(() => import('./pages/Story.jsx'));
-const AR = lazy(() => import('./pages/AR.jsx'));
+const ARView = lazy(() => import('./pages/ARView.jsx'));
 
 export default function App() {
-  const pathname = useLocation().pathname;
-  const isStory = pathname.startsWith('/story');
+  const path = useLocation().pathname;
+  const isStory = path.startsWith('/story') || path.startsWith('/ar');
   return (
     <>
       <Routes>
         <Route path="story" element={<Suspense fallback={<div className="story" />}><Story /></Suspense>} />
-        <Route path="ar" element={<Suspense fallback={<div className="ar-page" />}><AR /></Suspense>} />
+        <Route path="ar" element={<Suspense fallback={<div className="ar-page" />}><ARView /></Suspense>} />
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="learn" element={<Learn />} />
@@ -45,7 +45,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
-      {!isStory && pathname !== '/ar' && <FloatingAssistant />}
+      {!isStory && <FloatingAssistant />}
     </>
   );
 }

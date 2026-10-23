@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/index.jsx';
 import { PARTS } from '../../shared/content/parts.js';
 import { actions } from '../store/progress.js';
@@ -116,6 +117,7 @@ export default function Assembly() {
                 <span className="chip ok"><Icon name="check" size={14} />{t('asm.built')}</span>
                 <h2 style={{ marginTop: 10 }}>{t('asm.power.t')}</h2>
                 <p className="muted small">{t('asm.power.d')}</p>
+                <Link className="btn primary" to="/ar?m=pc" style={{ marginBlock: '4px 10px' }}><Icon name="camera" size={16} />{t('ar.built')}</Link>
                 {post?.ok && <div className="callout ok"><Icon name="star" /><div><b>{t('asm.score', { n: scoreFor(mistakes) })}</b> {t('asm.mistakes', { n: mistakes })}</div></div>}
               </div>
             ) : empty ? (

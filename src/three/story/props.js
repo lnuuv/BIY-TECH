@@ -560,6 +560,7 @@ export function buildTinyPC() {
   const body = box(0.184, 0.037, 0.18, MAT.black, 0, 0, 0, 0.004); g.add(body);
   const front = new THREE.Mesh(new THREE.PlaneGeometry(0.178, 0.033), new THREE.MeshStandardMaterial({ map: honeyTex(), roughness: 0.6 }));
   front.position.set(0, 0, 0.0905); g.add(front);
+  // Horizontal red Lenovo ThinkCentre stripe across the bezel & side
   g.add(box(0.176, 0.006, 0.038, M({ color: 0xb91c1c, roughness: 0.45 }), 0, 0.012, 0.072));
   g.add(box(0.005, 0.035, 0.15, M({ color: 0xb91c1c, roughness: 0.45 }), 0.092, 0, 0));
   const pw = cyl(0.006, 0.006, 0.002, MAT.chrome, 0.07, -0.004, 0.092, 16); pw.rotation.x = Math.PI / 2; g.add(pw);

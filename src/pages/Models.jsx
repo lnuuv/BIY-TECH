@@ -54,6 +54,7 @@ export default function Models() {
             <ModelCanvas modelKey={model} build={build} labels={labels} autoRotate={rotate} onReady={onReady} onSelect={onSelect} onHover={setHover} labelText={labelText} ariaLabel={`${c(MODELS[model].name)} — 3D`}>
               <div className="stage-tools">
                 {hasExplode && <button className="btn sm" aria-pressed={exploded} onClick={() => { setExploded(!exploded); toast(t(exploded ? 'models.assembled' : 'models.exploded'), 'explode'); }}><Icon name="explode" size={16} />{t(exploded ? 'models.assemble' : 'models.explode')}</button>}
+                <Link className="btn sm primary" to={`/ar?m=${model}`}><Icon name="camera" size={16} />{t('ar.open')}</Link>
                 <button className="btn sm" aria-pressed={labels} onClick={() => setLabels(!labels)}><Icon name="tag" size={16} />{t('models.labels')}</button>
                 <button className="btn sm" onClick={() => { setSel(null); viewer.current?.select(null); }}><Icon name="reset" size={16} />{t('models.reset')}</button>
               </div>
