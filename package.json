@@ -1,0 +1,39 @@
+{
+  "name": "unit1-academy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BTEC Level 3 IT — Unit 1 (IT Systems) interactive learning platform",
+  "scripts": {
+    "dev": "concurrently -n web,api \"vite --open\" \"node --watch server/index.js\"",
+    "dev:web": "vite --open",
+    "dev:api": "node --watch server/index.js",
+    "build": "vite build",
+    "start": "node server/index.js",
+    "test": "node --test tests/assembly.test.js tests/i18n.test.js tests/models.test.js tests/server.test.js tests/sim.test.js tests/story.test.js tests/assignment.test.js tests/assignment-ui.test.js",
+    "kb:build": "python3 scripts/build_kb.py",
+    "kb:refs": "node scripts/build_reference_kb.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.1.0",
+    "@fontsource/ibm-plex-sans-arabic": "^5.1.0",
+    "@fontsource/jetbrains-mono": "^5.1.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mammoth": "^1.13.0",
+    "multer": "^2.4.0",
+    "pdfjs-dist": "^6.4.299",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.2.0",
+    "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "^9.0.1",
+    "esbuild": "^0.28.2",
+    "vite": "^5.4.10"
+  }
+}

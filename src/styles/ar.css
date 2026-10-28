@@ -1,0 +1,124 @@
+/* ---------- AR page (full screen, phone-first) ---------- */
+.ar-page {
+  position: fixed; inset: 0; z-index: 50; overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 0%, #1d2f4a 0%, #0e1727 55%, #070b13 100%);
+  color: #e8eef7; touch-action: none; -webkit-user-select: none; user-select: none;
+}
+.ar-video { position: absolute; top: 0; left: 0; width: 2px; height: 2px; opacity: 0; pointer-events: none; z-index: 0; } /* drawn inside the 3D scene */
+
+.ar-page .ar-stage { position: absolute; inset: 0; z-index: 1; height: 100%; min-height: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.ar-page .stage-host { position: absolute; inset: 0; }
+
+/* the overlay layer: lets touches through to the 3D canvas, except on its controls.
+   In real AR it becomes the WebXR dom-overlay and takes the touches itself (pinch / twist). */
+.ar-ui { position: absolute; inset: 0; z-index: 5; pointer-events: none; display: flex; flex-direction: column; padding: max(12px, env(safe-area-inset-top)) 12px max(14px, env(safe-area-inset-bottom)); gap: 10px; }
+.ar-page.mode-xr .ar-ui { pointer-events: auto; background: transparent; color: #e8eef7; }
+.ar-ui [data-ui] { pointer-events: auto; }
+
+.ar-top { display: flex; align-items: center; gap: 8px; }
+.ar-models { flex: 1; display: flex; gap: 6px; justify-content: center; overflow-x: auto; scrollbar-width: none; }
+.ar-models::-webkit-scrollbar { display: none; }
+.ar-models button {
+  flex: none; border: 1px solid rgba(255, 255, 255, .18); background: rgba(10, 16, 28, .55); color: #dbe6f3;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  padding: 8px 14px; border-radius: 999px; font: 600 13px/1 inherit; cursor: pointer; white-space: nowrap;
+}
+.ar-models button[aria-selected='true'] { background: #38bdf8; border-color: #38bdf8; color: #03111e; }
+.ar-models button:disabled { opacity: .35; }
+
+.ar-btn {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  min-width: 64px; min-height: 56px; padding: 8px 12px; border-radius: 16px; cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, .16); background: rgba(10, 16, 28, .62); color: #e8eef7;
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  font: 600 12px/1.1 inherit; text-decoration: none; transition: transform .15s ease, background .2s ease;
+}
+.ar-btn:active { transform: scale(.94); }
+.ar-btn:disabled { opacity: .4; }
+.ar-btn.round { min-width: 44px; min-height: 44px; width: 44px; height: 44px; padding: 0; border-radius: 50%; flex: none; font-size: 15px; }
+.ar-btn.round.sm { width: 32px; height: 32px; min-width: 32px; min-height: 32px; }
+.ar-btn.primary { background: linear-gradient(180deg, #4cc7fb, #2fa8e8); border-color: transparent; color: #03111e; }
+.ar-btn.accent { background: linear-gradient(180deg, #a78bfa, #7c5cf0); border-color: transparent; color: #fff; }
+
+.ar-hint {
+  align-self: center; display: inline-flex; align-items: center; gap: 8px; max-width: min(92%, 520px); text-align: center;
+  padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  background: rgba(10, 16, 28, .6); border: 1px solid rgba(255, 255, 255, .12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.ar-hint[data-status='found'] { background: rgba(56, 189, 248, .92); color: #03111e; border-color: transparent; animation: ar-pulse 1.3s ease-in-out infinite; }
+.ar-scan { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #38bdf8; border-top-color: transparent; animation: ar-spin .9s linear infinite; }
+@keyframes ar-spin { to { transform: rotate(360deg); } }
+@keyframes ar-pulse { 50% { transform: scale(1.04); } }
+
+.ar-err { align-self: center; max-width: min(92%, 480px); padding: 10px 14px; border-radius: 14px; background: rgba(127, 29, 29, .9); color: #fee2e2; font-size: 13px; display: flex; gap: 10px; align-items: center; }
+
+.ar-link { background: none; border: 0; color: #7dd3fc; font: 600 13px/1 inherit; cursor: pointer; text-decoration: none; padding: 0; }
+
+.ar-sheet {
+  margin-top: auto; align-self: center; width: min(100%, 460px); max-height: 42vh; overflow-y: auto;
+  padding: 14px 16px; border-radius: 20px; background: rgba(9, 14, 25, .84); border: 1px solid rgba(125, 211, 252, .28);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 18px 40px rgba(0, 0, 0, .45);
+  animation: ar-up .28s cubic-bezier(.2, .8, .2, 1);
+}
+.ar-sheet-head { display: flex; justify-content: space-between; align-items: center; }
+.ar-chip { font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #38bdf8; background: rgba(56, 189, 248, .12); border: 1px solid rgba(56, 189, 248, .35); padding: 4px 9px; border-radius: 999px; }
+.ar-sheet h2 { margin: 8px 0 4px; font-size: 19px; color: #fff; }
+.ar-sheet p { margin: 0 0 8px; font-size: 14px; line-height: 1.55; color: #c9d6e6; }
+.ar-sheet ul { margin: 0 0 10px; padding-inline-start: 18px; font-size: 13px; line-height: 1.6; color: #aebdd0; }
+@keyframes ar-up { from { transform: translateY(16px); opacity: 0; } }
+
+.ar-dock { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.ar-sheet + .ar-dock { margin-top: 0; }
+.ar-ui > .ar-dock:only-of-type { margin-top: auto; }
+.ar-ui .ar-hint ~ .ar-dock { margin-top: auto; }
+.ar-ui .ar-sheet ~ .ar-dock { margin-top: 0; }
+
+/* teacher's screen: QR code to open the same model on a phone */
+.ar-qr {
+  position: absolute; inset-inline-end: 18px; bottom: 96px; width: 230px; padding: 14px; border-radius: 20px;
+  background: rgba(9, 14, 25, .82); border: 1px solid rgba(125, 211, 252, .3); backdrop-filter: blur(14px);
+  display: flex; flex-direction: column; gap: 10px; box-shadow: 0 18px 40px rgba(0, 0, 0, .4);
+}
+.ar-qr-code { background: #fff; border-radius: 12px; padding: 8px; }
+.ar-qr-code svg { display: block; width: 100%; height: auto; }
+.ar-qr b { font-size: 15px; color: #fff; }
+.ar-qr p { margin: 4px 0 0; font-size: 12px; line-height: 1.5; color: #b6c4d6; }
+
+@media (min-width: 900px) {
+  .ar-sheet { position: absolute; inset-inline-start: 18px; bottom: 96px; margin: 0; width: 360px; max-height: 60vh; }
+  .ar-ui .ar-sheet ~ .ar-dock { margin-top: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .ar-sheet, .ar-hint, .ar-scan { animation: none; } }
+@media (max-width: 430px) {
+  .ar-models { justify-content: flex-start; }
+  .ar-models button { padding: 7px 11px; font-size: 12px; }
+  .ar-btn { min-width: 58px; }
+}
+
+/* guided tour: a thin bar that fills while each part is shown */
+.ar-progress { height: 3px; border-radius: 3px; background: rgba(56, 189, 248, .2); margin-top: 10px; overflow: hidden; position: relative; }
+.ar-progress::after { content: ''; position: absolute; inset: 0; background: #38bdf8; transform-origin: left; animation: ar-fill 4.2s linear forwards; }
+[dir='rtl'] .ar-progress::after { transform-origin: right; }
+@keyframes ar-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* floating name tags on the parts */
+.ar-page .v3d-label { background: rgba(9, 14, 25, .82); color: #e8f4ff; border: 1px solid rgba(56, 189, 248, .55); font-size: 12px; padding: 4px 9px; border-radius: 999px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); white-space: nowrap; box-shadow: 0 4px 14px rgba(0, 0, 0, .35); }
+.ar-page .v3d-label.is-active { background: #38bdf8; color: #03111e; border-color: #38bdf8; }
+@media (max-width: 430px) { .ar-page .v3d-label { font-size: 10.5px; padding: 3px 7px; } }
+
+/* phones: the explanation card sits on the side while the zoomed part shows in the other half */
+@media (max-width: 899px) {
+  .ar-page:not(.mode-xr) .ar-sheet {
+    position: absolute; inset-inline-end: 10px; top: 124px; margin: 0; align-self: auto;
+    width: min(54vw, 300px); max-height: calc(100% - 124px - 180px); padding: 12px 13px; border-radius: 18px;
+    animation: ar-side .32s cubic-bezier(.2, .8, .2, 1);
+  }
+  .ar-page:not(.mode-xr) .ar-sheet h2 { font-size: 16px; }
+  .ar-page:not(.mode-xr) .ar-sheet p { font-size: 13px; line-height: 1.5; }
+  .ar-page:not(.mode-xr) .ar-sheet ul { font-size: 12px; padding-inline-start: 15px; }
+  .ar-page:not(.mode-xr) .ar-ui .ar-sheet ~ .ar-dock { margin-top: auto; }
+}
+@keyframes ar-side { from { transform: translateX(24px); opacity: 0; } }
+[dir='rtl'] .ar-sheet { animation-name: ar-side-rtl; }
+@keyframes ar-side-rtl { from { transform: translateX(-24px); opacity: 0; } }
+@media (max-width: 899px) { [dir='rtl'] .ar-page:not(.mode-xr) .ar-sheet { animation-name: ar-side-rtl; } }

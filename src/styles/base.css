@@ -1,0 +1,22 @@
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; min-height: 100dvh; }
+h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 .5em; letter-spacing: -.01em; font-weight: 650; }
+[dir='rtl'] h1, [dir='rtl'] h2, [dir='rtl'] h3 { letter-spacing: 0; }
+h1 { font-size: clamp(26px, 3.4vw, 40px); } h2 { font-size: clamp(20px, 2.2vw, 26px); } h3 { font-size: 17px; } h4 { font-size: 15px; }
+p { margin: 0 0 1em; } a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+code, .mono { font-family: var(--font-mono); font-size: .92em; }
+button { font: inherit; color: inherit; cursor: pointer; }
+input, select, textarea { font: inherit; color: inherit; }
+::selection { background: var(--accent-line); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); border: 0; white-space: nowrap; }
+.skip-link { position: absolute; inset-inline-start: 8px; top: -48px; background: var(--accent); color: var(--accent-ink); padding: 8px 14px; border-radius: 8px; z-index: 100; transition: top var(--t-fast); }
+.skip-link:focus { top: 8px; }
+* { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
+bdi.ltr, .ltr { direction: ltr; unicode-bidi: isolate; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes pop { 0% { transform: scale(.96); opacity: 0 } 100% { transform: none; opacity: 1 } }
+@keyframes shimmer { to { background-position: -200% 0; } }
+@keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 var(--accent-line); } 100% { box-shadow: 0 0 0 12px transparent; } }
+@keyframes shake { 20%, 60% { transform: translateX(-5px); } 40%, 80% { transform: translateX(5px); } }
