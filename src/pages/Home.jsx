@@ -39,6 +39,7 @@ export default function Home() {
     { to: '/lab', icon: 'network', k: 'lab' },
     { to: '/assistant', icon: 'bot', k: 'assistant' },
     { to: '/practice', icon: 'trophy', k: 'practice' },
+    { to: '/platform', icon: 'cloud', k: 'platform' },
     { to: '/games', icon: 'gamepad', k: 'games' },
   ];
   return (

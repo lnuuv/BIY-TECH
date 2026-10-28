@@ -12,6 +12,7 @@ const Models = lazy(() => import('./pages/Models.jsx'));
 const Lab = lazy(() => import('./pages/Lab.jsx'));
 const Practice = lazy(() => import('./pages/Practice.jsx'));
 const Games = lazy(() => import('./pages/Games.jsx'));
+const Platform = lazy(() => import('./pages/Platform.jsx'));
 const Assignment = lazy(() => import('./pages/Assignment.jsx'));
 const Assistant = lazy(() => import('./pages/Assistant.jsx'));
 const Progress = lazy(() => import('./pages/Progress.jsx'));
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="models" element={<Models />} />
           <Route path="lab" element={<Lab />} />
           <Route path="practice" element={<Practice />} />
+          <Route path="platform" element={<Platform />} />
           <Route path="games" element={<Games />} />
           <Route path="assignment" element={<Assignment />} />
           <Route path="assistant" element={<Assistant />} />

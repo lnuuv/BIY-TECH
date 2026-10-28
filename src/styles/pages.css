@@ -46,6 +46,36 @@
 .feature { display: block; } .feature-ic { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-line); margin-bottom: 14px; }
 .lesson-card { height: 100%; } .lesson-no { font-family: var(--font-mono); font-size: 13px; color: var(--accent); font-weight: 600; }
 
+/* ---------- learning platform ---------- */
+.platform-page { min-height: calc(100vh - var(--topbar-h)); }
+.platform-gate { max-width: 560px; margin: 34px auto 0; display: grid; gap: 18px; padding: clamp(22px, 4vw, 38px); }
+.platform-emblem { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 20px; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--accent-line); }
+.platform-gate h2 { margin: 4px 0 6px; }
+.platform-form { display: grid; gap: 14px; }
+.platform-form label { display: grid; gap: 6px; font-size: 13px; font-weight: 600; color: var(--text-2); }
+.platform-form input { width: 100%; box-sizing: border-box; padding: 11px 13px; border: 1px solid var(--border-strong); border-radius: var(--r-md); background: var(--surface-2); color: var(--text); font: inherit; outline: none; }
+.platform-form input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.platform-banner { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 18px; padding: 24px; background: linear-gradient(120deg, var(--surface), color-mix(in srgb, var(--accent-soft) 45%, var(--surface))); }
+.platform-banner h2 { margin: 10px 0 4px; }
+.platform-progress { width: min(230px, 100%); display: grid; gap: 5px; text-align: end; }
+.platform-progress b { font-size: 30px; color: var(--accent); }
+.platform-progress span { color: var(--muted); font-size: 12px; }
+.platform-work { margin-bottom: 18px; }
+.platform-work-card { display: flex; flex-direction: column; min-height: 190px; }
+.platform-work-card h3 { margin-bottom: 6px; }
+.platform-link { display: inline-flex; align-items: center; gap: 5px; margin-top: auto; color: var(--accent); font-size: 13px; font-weight: 700; }
+.platform-lower { align-items: stretch; }
+.platform-list { display: grid; gap: 13px; list-style: none; padding: 0; margin: 18px 0 0; }
+.platform-list li { display: flex; align-items: center; gap: 10px; color: var(--text-2); font-size: 14px; }
+.platform-list svg { color: var(--accent); flex: none; }
+.platform-account { display: grid; gap: 12px; }
+.platform-account h3 { margin: 3px 0 0; }
+.platform-avatar { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; color: var(--accent-ink); background: var(--accent); font-weight: 800; }
+@media (max-width: 700px) {
+  .platform-banner { align-items: stretch; flex-direction: column; }
+  .platform-progress { width: 100%; text-align: start; }
+}
+
 /* ---------- lessons & quiz ---------- */
 .lesson-head { max-width: 780px; margin-bottom: 24px; } .lesson-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; align-items: start; } @media (max-width: 960px) { .lesson-grid { grid-template-columns: 1fr; } }
 .point { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; } .point p { margin: 0; font-size: 15.5px; } .point-no { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 13px; }

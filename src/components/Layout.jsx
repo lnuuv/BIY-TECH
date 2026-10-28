@@ -13,6 +13,7 @@ const NAV = [
   { to: '/models', icon: 'cube', k: 'nav.models', group: 'build' },
   { to: '/lab', icon: 'network', k: 'nav.lab', group: 'build' },
   { to: '/practice', icon: 'trophy', k: 'nav.practice', group: 'test' },
+  { to: '/platform', icon: 'cloud', k: 'nav.platform', group: 'test' },
   { to: '/games', icon: 'gamepad', k: 'nav.games', group: 'test' },
   { to: '/assignment', icon: 'doc', k: 'nav.assignment', group: 'test' },
   { to: '/assistant', icon: 'bot', k: 'nav.assistant', group: 'help' },
